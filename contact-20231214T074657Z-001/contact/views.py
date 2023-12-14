@@ -32,3 +32,12 @@ def update_contact(request, contact_id):
        contact_form.save()
        return redirect('index')
     return render(request, 'contact/upload_form.html', {'upload_form':contact_form})
+
+def delete_contact(request, contact_id):
+    contact_id = int(contact_id)
+    try:
+        contact_sel = Contact.objects.get(id = contact_id)
+    except Contact.DoesNotExist:
+        return redirect('index')
+    contact_sel.delete()
+    return redirect('index')
