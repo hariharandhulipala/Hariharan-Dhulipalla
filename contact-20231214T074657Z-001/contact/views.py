@@ -41,3 +41,6 @@ def delete_contact(request, contact_id):
         return redirect('index')
     contact_sel.delete()
     return redirect('index')
+
+def red_name(request):
+    return render(request, 'contactsapp.html')
